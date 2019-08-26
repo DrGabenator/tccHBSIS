@@ -166,6 +166,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908261846429_DBum.cs" />
+    <Compile Include="Migrations\201908261846429_DBum.Designer.cs">
+      <DependentUpon>201908261846429_DBum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908261857271_DBdois.cs" />
+    <Compile Include="Migrations\201908261857271_DBdois.Designer.cs">
+      <DependentUpon>201908261857271_DBdois.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908261956516_DBtres.cs" />
+    <Compile Include="Migrations\201908261956516_DBtres.Designer.cs">
+      <DependentUpon>201908261956516_DBtres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Automovel.cs" />
     <Compile Include="Models\Bicicleta.cs" />
     <Compile Include="Models\ContextDB.cs" />
@@ -264,6 +277,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201908261846429_DBum.resx">
+      <DependentUpon>201908261846429_DBum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908261857271_DBdois.resx">
+      <DependentUpon>201908261857271_DBdois.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908261956516_DBtres.resx">
+      <DependentUpon>201908261956516_DBtres.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,9 +11,13 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int Codigo { get; set; }
-        public RegistroVeiculo registroVeiculo { get; set; }
+        [Required]
+        public RegistroVeiculo RegistroVeiculo { get; set; }
+        [Required]
         public DateTime DataInicial { get; set; }
+        [Required]
         public DateTime DataFinal { get; set; }
+        [Required]
         public decimal Valor { get; set; }
         public string TermoDeUso { get; set; }
     }

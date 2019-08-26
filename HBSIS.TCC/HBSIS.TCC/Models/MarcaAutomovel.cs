@@ -10,6 +10,6 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int Codigo { get; set; }
-        public string Descricaco { get; set; }
+        public string Descricao { get; set; }
     }
 }

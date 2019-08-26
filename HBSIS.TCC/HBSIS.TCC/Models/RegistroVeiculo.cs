@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,7 +11,7 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int Codigo { get; set; }
-        public TipoVeiculo tipoVeiculo { get; set; }
+        public TipoVeiculo TipoVeiculo { get; set; }
         public Cor Cor { get; set; }
         public string Placa { get; set; }
         public bool Ativo { get; set; }
