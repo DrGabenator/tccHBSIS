@@ -11,7 +11,7 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int Codigo { get; set; }
-        public string Descricacao { get; set; }
+        public string Descricao { get; set; }
         [Required]
         public virtual TipoVeiculo TipoVeiculo { get; set; }
     }
