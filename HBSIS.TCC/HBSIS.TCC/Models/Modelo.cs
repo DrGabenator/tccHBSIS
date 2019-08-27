@@ -6,7 +6,7 @@ using System.Web;
 
 namespace HBSIS.TCC.Models
 {
-    public class Modelo
+    public class Modelo : UserControl
     {
         [Key]
         public int Codigo { get; set; }

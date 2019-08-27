@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HBSIS.TCC.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,7 +19,10 @@ namespace HBSIS.TCC.Models
         [Required]
         public virtual Periodo Periodo { get; set; }
         [Required]
-        public int Vagas { get; set; }
+        public virtual Usuario Usuario { get; set; }
+        [Required]
+        public int Vaga { get; set; }
+        public virtual StatusLocacao StatusLocacao { get; set; }
         public string TermoDeUso { get; set; }
     }
 }

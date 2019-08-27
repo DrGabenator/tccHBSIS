@@ -5,11 +5,10 @@ using System.Web;
 
 namespace HBSIS.TCC.Enums
 {
-    public enum TipoVeiculo
+    public enum StatusLocacao
     {
-        Automovel = 0,
-        Moto = 1,
-        Bicicleta = 2,
-        Patinete = 3
+        Vigente = 0,
+        EmAprovacao = 1,
+        FilaDeEspera = 2
     }
 }
