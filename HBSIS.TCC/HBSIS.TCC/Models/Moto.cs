@@ -11,10 +11,8 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int Codigo { get; set; }
-        [Required]
-        public MarcaMoto MarcaMoto { get; set; }
-        [Required]
-        public ModeloMoto ModeloMoto { get; set; }
+        public virtual MarcaMoto MarcaMoto { get; set; }
+        public virtual ModeloMoto ModeloMoto { get; set; }
         public int ModeloMotoFK { get; set; }
     }
 }

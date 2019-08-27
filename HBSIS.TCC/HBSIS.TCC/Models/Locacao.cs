@@ -11,8 +11,7 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int Codigo { get; set; }
-        [Required]
-        public RegistroVeiculo RegistroVeiculo { get; set; }
+        public virtual RegistroVeiculo RegistroVeiculo { get; set; }
         [Required]
         public DateTime DataInicial { get; set; }
         [Required]

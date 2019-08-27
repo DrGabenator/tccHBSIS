@@ -184,10 +184,6 @@
     <Compile Include="Models\ContextDB.cs" />
     <Compile Include="Models\Cor.cs" />
     <Compile Include="Models\Locacao.cs" />
-    <Compile Include="Models\MarcaAutomovel.cs" />
-    <Compile Include="Models\MarcaMoto.cs" />
-    <Compile Include="Models\ModeloAutomovel.cs" />
-    <Compile Include="Models\ModeloMoto.cs" />
     <Compile Include="Models\Moto.cs" />
     <Compile Include="Models\Patinete.cs" />
     <Compile Include="Models\TipoVeiculo.cs" />

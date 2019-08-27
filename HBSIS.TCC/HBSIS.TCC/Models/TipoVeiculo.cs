@@ -11,13 +11,9 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public Automovel Automovel { get; set; }
-        [Required]
-        public Moto Moto { get; set; }
-        [Required]
-        public Bicicleta Bicicleta { get; set; }
-        [Required]
-        public Patinete Patinete { get; set; }
+        public virtual Automovel Automovel { get; set; }
+        public virtual Moto Moto { get; set; }
+        public virtual Bicicleta Bicicleta { get; set; }
+        public virtual Patinete Patinete { get; set; }
     }
 }

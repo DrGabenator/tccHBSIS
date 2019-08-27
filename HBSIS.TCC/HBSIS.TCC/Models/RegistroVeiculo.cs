@@ -11,8 +11,8 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int Codigo { get; set; }
-        public TipoVeiculo TipoVeiculo { get; set; }
-        public Cor Cor { get; set; }
+        public virtual TipoVeiculo TipoVeiculo { get; set; }
+        public virtual Cor Cor { get; set; }
         public string Placa { get; set; }
         public bool Ativo { get; set; }
     }
