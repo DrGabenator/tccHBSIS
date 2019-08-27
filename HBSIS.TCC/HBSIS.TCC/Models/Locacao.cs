@@ -7,17 +7,18 @@ using System.Web;
 
 namespace HBSIS.TCC.Models
 {
-    public class Locacao
+    public class Locacao : UserControl
     {
         [Key]
         public int Codigo { get; set; }
+        [Required]
         public virtual RegistroVeiculo RegistroVeiculo { get; set; }
         [Required]
-        public DateTime DataInicial { get; set; }
-        [Required]
-        public DateTime DataFinal { get; set; }
-        [Required]
         public decimal Valor { get; set; }
+        [Required]
+        public virtual Periodo Periodo { get; set; }
+        [Required]
+        public int Vagas { get; set; }
         public string TermoDeUso { get; set; }
     }
 }

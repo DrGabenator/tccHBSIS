@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace HBSIS.TCC.Models
 {
-    public class Automovel
+    public class Modelo
     {
         [Key]
         public int Codigo { get; set; }
-        public virtual MarcaAutomovel MarcaAutomovel { get; set; }
-        public virtual ModeloAutomovel ModeloAutomovel { get; set; }
+        public string Descricaco { get; set; }
+        [Required]
+        public virtual Marca Marca { get; set; }
     }
 }

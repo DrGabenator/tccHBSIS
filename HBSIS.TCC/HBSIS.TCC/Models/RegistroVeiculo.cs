@@ -7,13 +7,15 @@ using System.Web;
 
 namespace HBSIS.TCC.Models
 {
-    public class RegistroVeiculo
+    public class RegistroVeiculo : UserControl
     {
         [Key]
         public int Codigo { get; set; }
-        public virtual TipoVeiculo TipoVeiculo { get; set; }
+        [Required]
+        public virtual Modelo Modelo { get; set; }
+        public string Descricaco { get; set; }
+        [Required]
         public virtual Cor Cor { get; set; }
         public string Placa { get; set; }
-        public bool Ativo { get; set; }
     }
 }
