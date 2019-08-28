@@ -16,5 +16,6 @@ namespace HBSIS.TCC.Models
         public bool PCD { get; set; }
         [Required]
         public bool TrabalhoNoturno { get; set; }
+        public bool Gestor { get; set; }
     }
 }

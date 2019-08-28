@@ -13,52 +13,44 @@ using HBSIS.TCC.Models;
 
 namespace HBSIS.TCC.Controllers
 {
-    public class ModeloesController : ApiController
+    public class TermoDeUsoesController : ApiController
     {
         private ContextDB db = new ContextDB();
 
-        //[Route("Api/Modelos/Marcas")]
-        //[HttpGet]
-        //public IQueryable<Marca> Getmodelosmarcas()
-        //{
-        //    return db.modelos.Where(x => x.Marca == Marca.Codigo);
-        //}
-       
-
-        // GET: api/Modeloes
-        public IQueryable<Modelo> Getmodelos()
+        // GET: api/TermoDeUsoes
+        public IQueryable<TermoDeUso> GetTermoDeUsoes()
         {
-            return db.modelos.Where(x => x.Ativo == true);
+            return db.TermoDeUsoes;
         }
 
-        // GET: api/Modeloes/5
-        [ResponseType(typeof(Modelo))]
-        public async Task<IHttpActionResult> GetModelo(int id)
+        // GET: api/TermoDeUsoes/5
+        [ResponseType(typeof(TermoDeUso))]
+        public async Task<IHttpActionResult> GetTermoDeUso(int id)
         {
-            Modelo modelo = await db.modelos.FindAsync(id);
-            if (modelo == null)
+            TermoDeUso termoDeUso = await db.TermoDeUsoes.FindAsync(id);
+            if (termoDeUso == null)
             {
                 return NotFound();
             }
 
-            return Ok(modelo);
+            return Ok(termoDeUso);
         }
 
-        // PUT: api/Modeloes/5
+        // PUT: api/TermoDeUsoes/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutModelo(int id, Modelo modelo)
+        public async Task<IHttpActionResult> PutTermoDeUso(int id, TermoDeUso termoDeUso)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != modelo.Codigo)
+            if (id != termoDeUso.Codigo)
             {
                 return BadRequest();
             }
 
-            db.Entry(modelo).State = EntityState.Modified;
+            db.Entry(termoDeUso).State = EntityState.Modified;
 
             try
             {
@@ -66,7 +58,7 @@ namespace HBSIS.TCC.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ModeloExists(id))
+                if (!TermoDeUsoExists(id))
                 {
                     return NotFound();
                 }
@@ -79,35 +71,35 @@ namespace HBSIS.TCC.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Modeloes
-        [ResponseType(typeof(Modelo))]
-        public async Task<IHttpActionResult> PostModelo(Modelo modelo)
+        // POST: api/TermoDeUsoes
+        [ResponseType(typeof(TermoDeUso))]
+        public async Task<IHttpActionResult> PostTermoDeUso(TermoDeUso termoDeUso)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.modelos.Add(modelo);
+            db.TermoDeUsoes.Add(termoDeUso);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = modelo.Codigo }, modelo);
+            return CreatedAtRoute("DefaultApi", new { id = termoDeUso.Codigo }, termoDeUso);
         }
 
-        // DELETE: api/Modeloes/5
-        [ResponseType(typeof(Modelo))]
-        public async Task<IHttpActionResult> DeleteModelo(int id)
+        // DELETE: api/TermoDeUsoes/5
+        [ResponseType(typeof(TermoDeUso))]
+        public async Task<IHttpActionResult> DeleteTermoDeUso(int id)
         {
-            Modelo modelo = await db.modelos.FindAsync(id);
-            if (modelo == null)
+            TermoDeUso termoDeUso = await db.TermoDeUsoes.FindAsync(id);
+            if (termoDeUso == null)
             {
                 return NotFound();
             }
 
-            db.modelos.Remove(modelo);
+            db.TermoDeUsoes.Remove(termoDeUso);
             await db.SaveChangesAsync();
 
-            return Ok(modelo);
+            return Ok(termoDeUso);
         }
 
         protected override void Dispose(bool disposing)
@@ -119,9 +111,9 @@ namespace HBSIS.TCC.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ModeloExists(int id)
+        private bool TermoDeUsoExists(int id)
         {
-            return db.modelos.Count(e => e.Codigo == id) > 0;
+            return db.TermoDeUsoes.Count(e => e.Codigo == id) > 0;
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using HBSIS.TCC.Enums;
 using HBSIS.TCC.Models;
 
 namespace HBSIS.TCC.Controllers
@@ -16,6 +17,23 @@ namespace HBSIS.TCC.Controllers
     public class RegistroVeiculoesController : ApiController
     {
         private ContextDB db = new ContextDB();
+
+        //[Route("Api/RegistroVeiculoes/TipoVeiculos")]
+        //[HttpGet]
+        //public List<KeyValuePair<string, int>> GettipoVeiculo()
+        //{
+        //    var list = new List<KeyValuePair<string, int>>();
+        //
+        //    foreach (var item in Enum.GetValues(typeof(TipoVeiculo)))
+        //    {
+        //
+        //        list.Add(new KeyValuePair<string, int>(item.ToString(),(int)item));
+        //    }
+        //
+        //    return list;
+        //    //return Enum.GetNames(typeof(TipoVeiculo));
+        //    
+        //}
 
         // GET: api/RegistroVeiculoes
         public IQueryable<RegistroVeiculo> GetregistroVeiculos()

@@ -15,5 +15,7 @@ namespace HBSIS.TCC.Models
         public DbSet<Periodo> periodos { get; set; }
         public DbSet<RegistroVeiculo> registroVeiculos { get; set; }
         public DbSet<Usuario> usuarios { get; set; }
+
+        public System.Data.Entity.DbSet<HBSIS.TCC.Models.TermoDeUso> TermoDeUsoes { get; set; }
     }
 }

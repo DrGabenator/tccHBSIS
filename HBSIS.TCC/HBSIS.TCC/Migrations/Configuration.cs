@@ -18,6 +18,23 @@ namespace HBSIS.TCC.Migrations
         protected override void Seed(HBSIS.TCC.Models.ContextDB context)
         {
 
+            var Cores = new List<Cor>()
+            {
+                new Cor(){Descricao="Branco"},
+                new Cor(){Descricao="Preto"},
+                new Cor(){Descricao="Prata"},
+                new Cor(){Descricao="Cinza"},
+                new Cor(){Descricao="Vermelho"},
+                new Cor(){Descricao="Marrom/Bege"},
+                new Cor(){Descricao="Azul"},
+                new Cor(){Descricao="Verde"},
+                new Cor(){Descricao="Amarelo/Dourado"},
+                new Cor(){Descricao="Outras"}
+            };
+
+            Cores.ForEach(s => context.cores.AddOrUpdate(p => p.Descricao, s));
+            context.SaveChanges();
+
             var incrementMarcasCodigo = 1;
 
             var Marcas = new List<Marca>()

@@ -162,12 +162,14 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\CorsController.cs" />
+    <Compile Include="Controllers\CustomQuerysController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocacaosController.cs" />
     <Compile Include="Controllers\MarcasController.cs" />
     <Compile Include="Controllers\ModeloesController.cs" />
     <Compile Include="Controllers\PeriodoesController.cs" />
     <Compile Include="Controllers\RegistroVeiculoesController.cs" />
+    <Compile Include="Controllers\TermoDeUsoesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Enums\StatusLocacao.cs" />
@@ -191,6 +193,18 @@
     <Compile Include="Migrations\201908271427390_DBquatro.Designer.cs">
       <DependentUpon>201908271427390_DBquatro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908281103366_DBcinco.cs" />
+    <Compile Include="Migrations\201908281103366_DBcinco.Designer.cs">
+      <DependentUpon>201908281103366_DBcinco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908281153178_DBseis.cs" />
+    <Compile Include="Migrations\201908281153178_DBseis.Designer.cs">
+      <DependentUpon>201908281153178_DBseis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908281809074_DBsete.cs" />
+    <Compile Include="Migrations\201908281809074_DBsete.Designer.cs">
+      <DependentUpon>201908281809074_DBsete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContextDB.cs" />
     <Compile Include="Models\Cor.cs" />
@@ -199,6 +213,7 @@
     <Compile Include="Models\Modelo.cs" />
     <Compile Include="Models\Periodo.cs" />
     <Compile Include="Models\RegistroVeiculo.cs" />
+    <Compile Include="Models\TermoDeUso.cs" />
     <Compile Include="Models\UserControl.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -298,6 +313,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908271427390_DBquatro.resx">
       <DependentUpon>201908271427390_DBquatro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908281103366_DBcinco.resx">
+      <DependentUpon>201908281103366_DBcinco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908281153178_DBseis.resx">
+      <DependentUpon>201908281153178_DBseis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908281809074_DBsete.resx">
+      <DependentUpon>201908281809074_DBsete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

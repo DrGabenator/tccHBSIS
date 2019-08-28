@@ -13,7 +13,7 @@ namespace HBSIS.TCC.Models
         public int Codigo { get; set; }
         [Required]
         public virtual Modelo Modelo { get; set; }
-        public string Descricaco { get; set; }
+        public string Descricao { get; set; }
         [Required]
         public virtual Cor Cor { get; set; }
         public string Placa { get; set; }
