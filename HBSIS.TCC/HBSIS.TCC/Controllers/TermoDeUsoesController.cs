@@ -84,6 +84,8 @@ namespace HBSIS.TCC.Controllers
         [ResponseType(typeof(TermoDeUso))]
         public async Task<IHttpActionResult> PostTermoDeUso(TermoDeUso termoDeUso)
         {
+            db.TermoDeUsoes.Where(x => x.Ativo == true);
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

@@ -21,7 +21,6 @@ namespace HBSIS.TCC.Controllers
 
             foreach (var item in Enum.GetValues(typeof(TipoVeiculo)))
             {
-
                 list.Add(new KeyValuePair<string, int>(item.ToString(), (int)item));
             }
 
