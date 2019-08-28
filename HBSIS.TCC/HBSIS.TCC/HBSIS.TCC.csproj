@@ -171,9 +171,11 @@
     <Compile Include="Controllers\RegistroVeiculoesController.cs" />
     <Compile Include="Controllers\TermoDeUsoesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\VagasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Enums\StatusLocacao.cs" />
     <Compile Include="Enums\TipoVeiculo.cs" />
+    <Compile Include="Enums\ValidateFields.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,9 +207,14 @@
     <Compile Include="Migrations\201908281809074_DBsete.Designer.cs">
       <DependentUpon>201908281809074_DBsete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908281822482_DBoito.cs" />
+    <Compile Include="Migrations\201908281822482_DBoito.Designer.cs">
+      <DependentUpon>201908281822482_DBoito.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContextDB.cs" />
     <Compile Include="Models\Cor.cs" />
+    <Compile Include="Models\CustomValidateField.cs" />
     <Compile Include="Models\Locacao.cs" />
     <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Modelo.cs" />
@@ -216,6 +223,7 @@
     <Compile Include="Models\TermoDeUso.cs" />
     <Compile Include="Models\UserControl.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\Vaga.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908281809074_DBsete.resx">
       <DependentUpon>201908281809074_DBsete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908281822482_DBoito.resx">
+      <DependentUpon>201908281822482_DBoito.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

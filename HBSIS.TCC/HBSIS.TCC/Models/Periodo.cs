@@ -16,5 +16,6 @@ namespace HBSIS.TCC.Models
         public DateTime DataInicial { get; set; } = DateTime.Now;
         [Required]
         public DateTime DataFinal { get; set; } = DateTime.Now;
+        public Usuario usuario { get; set; }
     }
 }

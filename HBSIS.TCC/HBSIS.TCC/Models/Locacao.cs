@@ -20,8 +20,7 @@ namespace HBSIS.TCC.Models
         public virtual Periodo Periodo { get; set; }
         [Required]
         public virtual Usuario Usuario { get; set; }
-        [Required]
-        public int Vaga { get; set; }
+        public Vaga Vaga { get; set; }
         public virtual StatusLocacao StatusLocacao { get; set; }
         public string TermoDeUso { get; set; }
     }

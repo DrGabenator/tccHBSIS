@@ -17,5 +17,7 @@ namespace HBSIS.TCC.Models
         public DbSet<Usuario> usuarios { get; set; }
 
         public System.Data.Entity.DbSet<HBSIS.TCC.Models.TermoDeUso> TermoDeUsoes { get; set; }
+
+        public System.Data.Entity.DbSet<HBSIS.TCC.Models.Vaga> Vagas { get; set; }
     }
 }

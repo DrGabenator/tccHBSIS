@@ -6,11 +6,13 @@ using System.Web;
 
 namespace HBSIS.TCC.Models
 {
-    public class TermoDeUso : UserControl
+    public class Vaga
     {
         [Key]
         public int Codigo { get; set; }
-        public string Termo { get; set; }
+        public int VagaAutomovel { get; set; }
+        public int VagaMoto { get; set; }
+        public int VagasGeral { get; set; } //Vagas para bicicletas e patinetes
         public Usuario usuario { get; set; }
     }
 }

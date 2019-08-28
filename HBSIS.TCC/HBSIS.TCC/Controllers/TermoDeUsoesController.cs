@@ -40,35 +40,44 @@ namespace HBSIS.TCC.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutTermoDeUso(int id, TermoDeUso termoDeUso)
         {
-            if (!ModelState.IsValid)
+            if (termoDeUso.usuario.Gestor == true)
             {
-                return BadRequest(ModelState);
-            }
-
-            if (id != termoDeUso.Codigo)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(termoDeUso).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TermoDeUsoExists(id))
+                if (!ModelState.IsValid)
                 {
-                    return NotFound();
+                    return BadRequest(ModelState);
                 }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return StatusCode(HttpStatusCode.NoContent);
+                if (id != termoDeUso.Codigo)
+                {
+                    return BadRequest();
+                }
+
+                db.Entry(termoDeUso).State = EntityState.Modified;
+
+                try
+                {
+                    await db.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!TermoDeUsoExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return StatusCode(HttpStatusCode.NoContent);
+            }
+            else
+            {
+                var respostaErro = ("É necessário ser um gestor para adicionar um Termo de Uso.");
+
+                return BadRequest(respostaErro);
+            }
         }
 
         // POST: api/TermoDeUsoes
