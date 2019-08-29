@@ -7,13 +7,13 @@ namespace HBSIS.TCC.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class DBsete : IMigrationMetadata
+    public sealed partial class DBtres : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DBsete));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DBtres));
         
         string IMigrationMetadata.Id
         {
-            get { return "201908281809074_DBsete"; }
+            get { return "201908291418081_DBtres"; }
         }
         
         string IMigrationMetadata.Source

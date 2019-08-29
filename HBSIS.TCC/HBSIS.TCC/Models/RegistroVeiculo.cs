@@ -16,6 +16,7 @@ namespace HBSIS.TCC.Models
         public string Descricao { get; set; }
         [Required]
         public virtual Cor Cor { get; set; }
+        [CustomValidateField(Enums.ValidateFields.ValidarPlaca)]
         public string Placa { get; set; }
     }
 }

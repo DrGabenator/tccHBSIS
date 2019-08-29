@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HBSIS.TCC.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,12 +11,9 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int Codigo { get; set; }
-        [Required]
         public int NumeroDePeriodos { get; set; }
-        [Required]
+        public virtual TipoVeiculo TipoVeiculo { get; set; }
         public DateTime DataInicial { get; set; } = DateTime.Now;
-        [Required]
-        public DateTime DataFinal { get; set; } = DateTime.Now;
-        public Usuario usuario { get; set; }
+        public DateTime DataFinal { get; set; } = DateTime.Now.AddMonths(6);
     }
 }

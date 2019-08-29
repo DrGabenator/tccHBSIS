@@ -13,6 +13,6 @@ namespace HBSIS.TCC.Models
         public int VagaAutomovel { get; set; }
         public int VagaMoto { get; set; }
         public int VagasGeral { get; set; } //Vagas para bicicletas e patinetes
-        public Usuario usuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

@@ -40,55 +40,53 @@ namespace HBSIS.TCC.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutTermoDeUso(int id, TermoDeUso termoDeUso)
         {
-            if (termoDeUso.usuario.Gestor == true)
+
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
-                if (id != termoDeUso.Codigo)
-                {
-                    return BadRequest();
-                }
-
-                db.Entry(termoDeUso).State = EntityState.Modified;
-
-                try
-                {
-                    await db.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TermoDeUsoExists(id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-
-                return StatusCode(HttpStatusCode.NoContent);
+                return BadRequest(ModelState);
             }
-            else
+
+            if (id != termoDeUso.Codigo)
             {
-                var respostaErro = ("É necessário ser um gestor para adicionar um Termo de Uso.");
-
-                return BadRequest(respostaErro);
+                return BadRequest();
             }
+
+            db.Entry(termoDeUso).State = EntityState.Modified;
+
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TermoDeUsoExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+
         }
 
         // POST: api/TermoDeUsoes
         [ResponseType(typeof(TermoDeUso))]
         public async Task<IHttpActionResult> PostTermoDeUso(TermoDeUso termoDeUso)
         {
-            db.TermoDeUsoes.Where(x => x.Ativo == true);
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            var desativador = db.TermoDeUsoes.Where(x => x.Ativo == true).ToList();
+
+            foreach (var item in desativador)
+            {
+                item.Ativo = false;
             }
 
             db.TermoDeUsoes.Add(termoDeUso);

@@ -11,6 +11,5 @@ namespace HBSIS.TCC.Models
         [Key]
         public int Codigo { get; set; }
         public string Termo { get; set; }
-        public Usuario usuario { get; set; }
     }
 }

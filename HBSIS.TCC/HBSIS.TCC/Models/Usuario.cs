@@ -10,15 +10,8 @@ namespace HBSIS.TCC.Models
     {
         [Key]
         public int IdRegistrarion { get; set; }
-        [Required]
         public string Email { get; set; }
-        [Required]
         public bool PCD { get; set; }
-        [Required]
         public bool TrabalhoNoturno { get; set; }
-        [Required]
-        public bool MoraFora { get; set; }
-        [Required]
-        public bool Gestor { get; set; }
     }
 }

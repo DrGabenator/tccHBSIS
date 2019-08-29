@@ -18,23 +18,6 @@ namespace HBSIS.TCC.Controllers
     {
         private ContextDB db = new ContextDB();
 
-        //[Route("Api/RegistroVeiculoes/TipoVeiculos")]
-        //[HttpGet]
-        //public List<KeyValuePair<string, int>> GettipoVeiculo()
-        //{
-        //    var list = new List<KeyValuePair<string, int>>();
-        //
-        //    foreach (var item in Enum.GetValues(typeof(TipoVeiculo)))
-        //    {
-        //
-        //        list.Add(new KeyValuePair<string, int>(item.ToString(),(int)item));
-        //    }
-        //
-        //    return list;
-        //    //return Enum.GetNames(typeof(TipoVeiculo));
-        //    
-        //}
-
         // GET: api/RegistroVeiculoes
         public IQueryable<RegistroVeiculo> GetregistroVeiculos()
         {
@@ -98,8 +81,18 @@ namespace HBSIS.TCC.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.registroVeiculos.Add(registroVeiculo);
-            await db.SaveChangesAsync();
+            var verificadorPlaca = db.registroVeiculos.Select(x => x.Placa).ToList();
+
+            foreach (var item in verificadorPlaca)
+            {
+                if(item == registroVeiculo.Placa)
+                {
+                    return BadRequest("Placa já está cadastrada no sistema.");
+                }
+
+                db.registroVeiculos.Add(registroVeiculo);
+                await db.SaveChangesAsync();
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = registroVeiculo.Codigo }, registroVeiculo);
         }
