@@ -45,7 +45,7 @@ namespace HBSIS.TCC.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != usuario.IdRegistrarion)
+            if (id != usuario.IdRegistration)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace HBSIS.TCC.Controllers
             db.usuarios.Add(usuario);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = usuario.IdRegistrarion }, usuario);
+            return CreatedAtRoute("DefaultApi", new { id = usuario.IdRegistration }, usuario);
         }
 
         // DELETE: api/Usuarios/5
@@ -113,7 +113,7 @@ namespace HBSIS.TCC.Controllers
 
         private bool UsuarioExists(int id)
         {
-            return db.usuarios.Count(e => e.IdRegistrarion == id) > 0;
+            return db.usuarios.Count(e => e.IdRegistration == id) > 0;
         }
     }
 }

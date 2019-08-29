@@ -23,5 +23,6 @@ namespace HBSIS.TCC.Models
         public virtual Vaga Vaga { get; set; }
         public virtual StatusLocacao StatusLocacao { get; set; }
         public virtual TermoDeUso TermoDeUso { get; set; }
+        public bool AceiteTermoDeUso { get; set; }
     }
 }

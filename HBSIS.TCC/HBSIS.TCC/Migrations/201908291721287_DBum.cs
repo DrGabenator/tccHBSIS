@@ -3,7 +3,7 @@ namespace HBSIS.TCC.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Create : DbMigration
+    public partial class DBum : DbMigration
     {
         public override void Up()
         {
@@ -28,7 +28,6 @@ namespace HBSIS.TCC.Migrations
                         Codigo = c.Int(nullable: false, identity: true),
                         Valor = c.Decimal(nullable: false, precision: 18, scale: 2),
                         StatusLocacao = c.Int(nullable: false),
-                        TermoDeUso = c.String(),
                         Ativo = c.Boolean(),
                         UsuInc = c.Int(),
                         UsuAlt = c.Int(),
@@ -36,17 +35,20 @@ namespace HBSIS.TCC.Migrations
                         DatAlt = c.DateTime(),
                         Periodo_Codigo = c.Int(nullable: false),
                         RegistroVeiculo_Codigo = c.Int(nullable: false),
-                        Usuario_IdRegistrarion = c.Int(nullable: false),
+                        TermoDeUso_Codigo = c.Int(),
+                        Usuario_IdRegistration = c.Int(nullable: false),
                         Vaga_Codigo = c.Int(),
                     })
                 .PrimaryKey(t => t.Codigo)
                 .ForeignKey("dbo.Periodoes", t => t.Periodo_Codigo, cascadeDelete: true)
                 .ForeignKey("dbo.RegistroVeiculoes", t => t.RegistroVeiculo_Codigo, cascadeDelete: true)
-                .ForeignKey("dbo.Usuarios", t => t.Usuario_IdRegistrarion, cascadeDelete: true)
+                .ForeignKey("dbo.TermoDeUsoes", t => t.TermoDeUso_Codigo)
+                .ForeignKey("dbo.Usuarios", t => t.Usuario_IdRegistration, cascadeDelete: true)
                 .ForeignKey("dbo.Vagas", t => t.Vaga_Codigo)
                 .Index(t => t.Periodo_Codigo)
                 .Index(t => t.RegistroVeiculo_Codigo)
-                .Index(t => t.Usuario_IdRegistrarion)
+                .Index(t => t.TermoDeUso_Codigo)
+                .Index(t => t.Usuario_IdRegistration)
                 .Index(t => t.Vaga_Codigo);
             
             CreateTable(
@@ -55,6 +57,7 @@ namespace HBSIS.TCC.Migrations
                     {
                         Codigo = c.Int(nullable: false, identity: true),
                         NumeroDePeriodos = c.Int(nullable: false),
+                        TipoVeiculo = c.Int(nullable: false),
                         DataInicial = c.DateTime(nullable: false),
                         DataFinal = c.DateTime(nullable: false),
                         Ativo = c.Boolean(),
@@ -62,29 +65,8 @@ namespace HBSIS.TCC.Migrations
                         UsuAlt = c.Int(),
                         DatInc = c.DateTime(),
                         DatAlt = c.DateTime(),
-                        usuario_IdRegistrarion = c.Int(),
                     })
-                .PrimaryKey(t => t.Codigo)
-                .ForeignKey("dbo.Usuarios", t => t.usuario_IdRegistrarion)
-                .Index(t => t.usuario_IdRegistrarion);
-            
-            CreateTable(
-                "dbo.Usuarios",
-                c => new
-                    {
-                        IdRegistrarion = c.Int(nullable: false, identity: true),
-                        Email = c.String(nullable: false),
-                        PCD = c.Boolean(nullable: false),
-                        TrabalhoNoturno = c.Boolean(nullable: false),
-                        MoraFora = c.Boolean(nullable: false),
-                        Gestor = c.Boolean(nullable: false),
-                        Ativo = c.Boolean(),
-                        UsuInc = c.Int(),
-                        UsuAlt = c.Int(),
-                        DatInc = c.DateTime(),
-                        DatAlt = c.DateTime(),
-                    })
-                .PrimaryKey(t => t.IdRegistrarion);
+                .PrimaryKey(t => t.Codigo);
             
             CreateTable(
                 "dbo.RegistroVeiculoes",
@@ -140,20 +122,6 @@ namespace HBSIS.TCC.Migrations
                 .PrimaryKey(t => t.Codigo);
             
             CreateTable(
-                "dbo.Vagas",
-                c => new
-                    {
-                        Codigo = c.Int(nullable: false, identity: true),
-                        VagaAutomovel = c.Int(nullable: false),
-                        VagaMoto = c.Int(nullable: false),
-                        VagasGeral = c.Int(nullable: false),
-                        usuario_IdRegistrarion = c.Int(),
-                    })
-                .PrimaryKey(t => t.Codigo)
-                .ForeignKey("dbo.Usuarios", t => t.usuario_IdRegistrarion)
-                .Index(t => t.usuario_IdRegistrarion);
-            
-            CreateTable(
                 "dbo.TermoDeUsoes",
                 c => new
                     {
@@ -164,42 +132,69 @@ namespace HBSIS.TCC.Migrations
                         UsuAlt = c.Int(),
                         DatInc = c.DateTime(),
                         DatAlt = c.DateTime(),
-                        usuario_IdRegistrarion = c.Int(),
+                    })
+                .PrimaryKey(t => t.Codigo);
+            
+            CreateTable(
+                "dbo.Usuarios",
+                c => new
+                    {
+                        IdRegistration = c.Int(nullable: false, identity: true),
+                        Email = c.String(),
+                        PCD = c.Boolean(nullable: false),
+                        TrabalhoNoturno = c.Boolean(nullable: false),
+                        ResideFora = c.Boolean(nullable: false),
+                        Carona = c.Boolean(nullable: false),
+                        Ativo = c.Boolean(),
+                        UsuInc = c.Int(),
+                        UsuAlt = c.Int(),
+                        DatInc = c.DateTime(),
+                        DatAlt = c.DateTime(),
+                    })
+                .PrimaryKey(t => t.IdRegistration);
+            
+            CreateTable(
+                "dbo.Vagas",
+                c => new
+                    {
+                        Codigo = c.Int(nullable: false, identity: true),
+                        VagaAutomovel = c.Int(nullable: false),
+                        VagaMoto = c.Int(nullable: false),
+                        VagasGeral = c.Int(nullable: false),
+                        Usuario_IdRegistration = c.Int(),
                     })
                 .PrimaryKey(t => t.Codigo)
-                .ForeignKey("dbo.Usuarios", t => t.usuario_IdRegistrarion)
-                .Index(t => t.usuario_IdRegistrarion);
+                .ForeignKey("dbo.Usuarios", t => t.Usuario_IdRegistration)
+                .Index(t => t.Usuario_IdRegistration);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.TermoDeUsoes", "usuario_IdRegistrarion", "dbo.Usuarios");
             DropForeignKey("dbo.Locacaos", "Vaga_Codigo", "dbo.Vagas");
-            DropForeignKey("dbo.Vagas", "usuario_IdRegistrarion", "dbo.Usuarios");
-            DropForeignKey("dbo.Locacaos", "Usuario_IdRegistrarion", "dbo.Usuarios");
+            DropForeignKey("dbo.Vagas", "Usuario_IdRegistration", "dbo.Usuarios");
+            DropForeignKey("dbo.Locacaos", "Usuario_IdRegistration", "dbo.Usuarios");
+            DropForeignKey("dbo.Locacaos", "TermoDeUso_Codigo", "dbo.TermoDeUsoes");
             DropForeignKey("dbo.Locacaos", "RegistroVeiculo_Codigo", "dbo.RegistroVeiculoes");
             DropForeignKey("dbo.RegistroVeiculoes", "Modelo_Codigo", "dbo.Modeloes");
             DropForeignKey("dbo.Modeloes", "Marca_Codigo", "dbo.Marcas");
             DropForeignKey("dbo.RegistroVeiculoes", "Cor_Codigo", "dbo.Cors");
             DropForeignKey("dbo.Locacaos", "Periodo_Codigo", "dbo.Periodoes");
-            DropForeignKey("dbo.Periodoes", "usuario_IdRegistrarion", "dbo.Usuarios");
-            DropIndex("dbo.TermoDeUsoes", new[] { "usuario_IdRegistrarion" });
-            DropIndex("dbo.Vagas", new[] { "usuario_IdRegistrarion" });
+            DropIndex("dbo.Vagas", new[] { "Usuario_IdRegistration" });
             DropIndex("dbo.Modeloes", new[] { "Marca_Codigo" });
             DropIndex("dbo.RegistroVeiculoes", new[] { "Modelo_Codigo" });
             DropIndex("dbo.RegistroVeiculoes", new[] { "Cor_Codigo" });
-            DropIndex("dbo.Periodoes", new[] { "usuario_IdRegistrarion" });
             DropIndex("dbo.Locacaos", new[] { "Vaga_Codigo" });
-            DropIndex("dbo.Locacaos", new[] { "Usuario_IdRegistrarion" });
+            DropIndex("dbo.Locacaos", new[] { "Usuario_IdRegistration" });
+            DropIndex("dbo.Locacaos", new[] { "TermoDeUso_Codigo" });
             DropIndex("dbo.Locacaos", new[] { "RegistroVeiculo_Codigo" });
             DropIndex("dbo.Locacaos", new[] { "Periodo_Codigo" });
-            DropTable("dbo.TermoDeUsoes");
             DropTable("dbo.Vagas");
+            DropTable("dbo.Usuarios");
+            DropTable("dbo.TermoDeUsoes");
             DropTable("dbo.Marcas");
             DropTable("dbo.Modeloes");
             DropTable("dbo.RegistroVeiculoes");
-            DropTable("dbo.Usuarios");
             DropTable("dbo.Periodoes");
             DropTable("dbo.Locacaos");
             DropTable("dbo.Cors");
