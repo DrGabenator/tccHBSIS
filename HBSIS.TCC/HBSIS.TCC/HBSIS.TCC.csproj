@@ -179,13 +179,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908291721287_DBum.cs" />
-    <Compile Include="Migrations\201908291721287_DBum.Designer.cs">
-      <DependentUpon>201908291721287_DBum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201908292013400_DBdois.cs" />
-    <Compile Include="Migrations\201908292013400_DBdois.Designer.cs">
-      <DependentUpon>201908292013400_DBdois.cs</DependentUpon>
+    <Compile Include="Migrations\201908292018187_DBum.cs" />
+    <Compile Include="Migrations\201908292018187_DBum.Designer.cs">
+      <DependentUpon>201908292018187_DBum.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContextDB.cs" />
@@ -286,11 +282,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908291721287_DBum.resx">
-      <DependentUpon>201908291721287_DBum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908292013400_DBdois.resx">
-      <DependentUpon>201908292013400_DBdois.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908292018187_DBum.resx">
+      <DependentUpon>201908292018187_DBum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

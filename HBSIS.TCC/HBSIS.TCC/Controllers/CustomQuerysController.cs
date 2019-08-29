@@ -62,6 +62,8 @@ namespace HBSIS.TCC.Controllers
                 db.usuarios.Add(item);
             }
 
+            db.SaveChanges();
+
             return db.usuarios;
         }
 

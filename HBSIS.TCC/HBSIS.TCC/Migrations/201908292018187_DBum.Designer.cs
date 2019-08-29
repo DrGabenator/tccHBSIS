@@ -13,7 +13,7 @@ namespace HBSIS.TCC.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201908291721287_DBum"; }
+            get { return "201908292018187_DBum"; }
         }
         
         string IMigrationMetadata.Source
