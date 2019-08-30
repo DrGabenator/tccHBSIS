@@ -183,6 +183,18 @@
     <Compile Include="Migrations\201908292018187_DBum.Designer.cs">
       <DependentUpon>201908292018187_DBum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908301131492_DBdois.cs" />
+    <Compile Include="Migrations\201908301131492_DBdois.Designer.cs">
+      <DependentUpon>201908301131492_DBdois.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301138338_DBtres.cs" />
+    <Compile Include="Migrations\201908301138338_DBtres.Designer.cs">
+      <DependentUpon>201908301138338_DBtres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908301203503_DBquatro.cs" />
+    <Compile Include="Migrations\201908301203503_DBquatro.Designer.cs">
+      <DependentUpon>201908301203503_DBquatro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ContextDB.cs" />
     <Compile Include="Models\Cor.cs" />
@@ -284,6 +296,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908292018187_DBum.resx">
       <DependentUpon>201908292018187_DBum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301131492_DBdois.resx">
+      <DependentUpon>201908301131492_DBdois.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301138338_DBtres.resx">
+      <DependentUpon>201908301138338_DBtres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908301203503_DBquatro.resx">
+      <DependentUpon>201908301203503_DBquatro.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

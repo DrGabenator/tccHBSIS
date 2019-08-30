@@ -80,9 +80,25 @@ namespace HBSIS.TCC.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.locacoes.Add(locacao);
-            await db.SaveChangesAsync();
+            if (locacao.AceiteTermoDeUso == false)
+            {
+                return BadRequest("Para realizar a locação, você deve aceitar os termos de uso.");
+            }
 
+            var verificadorPlaca = db.locacoes.Select(x => x.Placa).ToList();
+
+            foreach (var item in verificadorPlaca)
+            {
+                if (item == locacao.Placa)
+                {
+                    return BadRequest("Placa já está cadastrada no sistema.");
+                }
+
+                db.locacoes.Add(locacao);
+                await db.SaveChangesAsync();
+            }
+
+            
             return CreatedAtRoute("DefaultApi", new { id = locacao.Codigo }, locacao);
         }
 

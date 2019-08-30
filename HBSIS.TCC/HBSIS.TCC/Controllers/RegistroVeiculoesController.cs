@@ -81,18 +81,8 @@ namespace HBSIS.TCC.Controllers
                 return BadRequest(ModelState);
             }
 
-            var verificadorPlaca = db.registroVeiculos.Select(x => x.Placa).ToList();
-
-            foreach (var item in verificadorPlaca)
-            {
-                if(item == registroVeiculo.Placa)
-                {
-                    return BadRequest("Placa já está cadastrada no sistema.");
-                }
-
-                db.registroVeiculos.Add(registroVeiculo);
-                await db.SaveChangesAsync();
-            }
+            db.registroVeiculos.Add(registroVeiculo);
+            await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = registroVeiculo.Codigo }, registroVeiculo);
         }

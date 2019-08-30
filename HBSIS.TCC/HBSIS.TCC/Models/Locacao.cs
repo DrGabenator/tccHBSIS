@@ -15,14 +15,14 @@ namespace HBSIS.TCC.Models
         [Required]
         public virtual RegistroVeiculo RegistroVeiculo { get; set; }
         [Required]
-        public decimal Valor { get; set; }
-        [Required]
         public virtual Periodo Periodo { get; set; }
         [Required]
         public virtual Usuario Usuario { get; set; }
         public virtual Vaga Vaga { get; set; }
         public virtual StatusLocacao StatusLocacao { get; set; }
         public virtual TermoDeUso TermoDeUso { get; set; }
+        [CustomValidateField(Enums.ValidateFields.ValidarPlaca)]
+        public string Placa { get; set; }
         public bool AceiteTermoDeUso { get; set; }
     }
 }

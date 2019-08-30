@@ -67,7 +67,6 @@ namespace HBSIS.TCC.Controllers
             return db.usuarios;
         }
 
-
         [Route("Api/Periodo/Tipo/{id}")]
         [HttpGet]
         public IQueryable<Periodo> PeriodoPorTipo(int id)

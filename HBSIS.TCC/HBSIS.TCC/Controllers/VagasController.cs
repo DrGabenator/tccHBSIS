@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using HBSIS.TCC.Enums;
 using HBSIS.TCC.Models;
 
 namespace HBSIS.TCC.Controllers
